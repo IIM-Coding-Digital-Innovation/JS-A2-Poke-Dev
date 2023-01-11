@@ -4,22 +4,22 @@ let submitButton = document.querySelector('#submit');
 let pokedexDictionary = document.querySelector('#dictionary');
 let page = 0;
 let previousUrl = '';
-let nextUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=20';
+let nextUrl = 'https://pokeapi.co/api/v2/pokemon/?offset=0&limit=24';
 let previousButton = document.querySelector('#previous');
 let nextButton = document.querySelector('#next');
-
-submitButton.addEventListener('click', () => {
-    
-})
 
 loadPage(nextUrl);
 
 previousButton.addEventListener('click', () => {
-    loadPage(previousUrl);
+    if (previousUrl != '') {
+        loadPage(previousUrl);
+    }
 })
 
 nextButton.addEventListener('click', () => {
-    loadPage(nextUrl);
+    if (nextUrl != '') {
+        loadPage(nextUrl);
+    }
 })
 
 function loadPage(url) {
@@ -35,18 +35,22 @@ function loadPage(url) {
 
         pokedexDictionary.innerHTML = '';
 
-        let pokemonPromises = data.results.map(pokemon => {
-            return fetch(pokemon.url).then(response => response.json());
-        })
 
         let pokemonNames = data.results.map(pokemon => {
             return pokemon.name;
+        })
+
+        let pokemonPromises = data.results.map(pokemon => {
+            return fetch(pokemon.url).then(response => response.json());
         })
         
         Promise.all(pokemonPromises).then(pokemonData => {
             pokemonData.forEach((data, index) => {
                 let card = document.createElement('a');
                         card.classList.add('pokemon-card');
+                        let noise = document.createElement('img');
+                        noise.classList.add('noise');
+                        noise.src = './img/noise.jpg';
                         let img = document.createElement('img');
                         img.src = data.sprites.front_default;
                         let infos = document.createElement('div');
@@ -55,27 +59,28 @@ function loadPage(url) {
                         let stats = document.createElement('ul');
                         let hp = document.createElement('li');
                         let hpData = document.createElement('text');
-                        hpData.innerHTML = 'HP ' + data.stats[1].base_stat;
+                        hpData.innerHTML = '<span>HP...............................................................................</span><span></span><span>' + data.stats[1].base_stat + '</span>';
                         hp.appendChild(hpData);
                         let attack = document.createElement('li');
                         let attackData = document.createElement('text');
-                        attackData.innerHTML = 'Attack ' + data.stats[2].base_stat;
+                        attackData.innerHTML = '<span>Attack...............................................................................</span><span>' + data.stats[2].base_stat + '</span>';
                         attack.appendChild(attackData);
                         let defense = document.createElement('li');
                         let defenseData = document.createElement('text');
-                        defenseData.innerHTML = 'Defense ' + data.stats[3].base_stat;
+                        defenseData.innerHTML = '<span>Defense...............................................................................</span><span>' + data.stats[3].base_stat + '</span>';
                         defense.appendChild(defenseData);
-            
+
                         stats.appendChild(hp);
                         stats.appendChild(attack);
                         stats.appendChild(defense);
-            
+
                         infos.appendChild(name);
                         infos.appendChild(stats);
-            
+
+                        card.appendChild(noise);
                         card.appendChild(img);
                         card.appendChild(infos);
-            
+
                         pokedexDictionary.appendChild(card);
             })
         })
