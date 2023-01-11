@@ -8,9 +8,6 @@
 
 }
 
-main {
-}
-
 .pagination {
     position: fixed;
     width: 100%;
@@ -92,6 +89,18 @@ main {
     height: 180px;
     image-rendering: pixelated;
     z-index: 2;
+}
+
+.pokemon-card img.shiny {
+    display: none;
+}
+
+.shiny img.regular {
+    display: none;
+}
+
+.shiny img.shiny {
+    display: block;
 }
 
 .pokemon-card div {
