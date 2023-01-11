@@ -8,6 +8,16 @@
     display: flex;
 }
 
+.pokemon-card img {
+    height: 210px;
+    image-rendering: pixelated;
+}
+
 .opacity-50 {
     opacity: .5;
+}
+
+#dictionary {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }

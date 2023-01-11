@@ -29,55 +29,58 @@ function loadPage(url) {
     })
     .then(function(data) {
         console.log(data.results);
+
         previousUrl = !(data.previous === null) ? data.previous:'';
         nextUrl = !(data.next === null) ? data.next:'';
+
         pokedexDictionary.innerHTML = '';
-        data.results.forEach(pokemon => {
-            createPokemonCard(pokemon);
-        });
+
+        let pokemonPromises = data.results.map(pokemon => {
+            return fetch(pokemon.url).then(response => response.json());
+        })
+
+        let pokemonNames = data.results.map(pokemon => {
+            return pokemon.name;
+        })
+        
+        Promise.all(pokemonPromises).then(pokemonData => {
+            pokemonData.forEach((data, index) => {
+                let card = document.createElement('a');
+                        card.classList.add('pokemon-card');
+                        let img = document.createElement('img');
+                        img.src = data.sprites.front_default;
+                        let infos = document.createElement('div');
+                        let name = document.createElement('span');
+                        name.innerHTML = pokemonNames[index].charAt(0).toUpperCase() + pokemonNames[index].slice(1);
+                        let stats = document.createElement('ul');
+                        let hp = document.createElement('li');
+                        let hpData = document.createElement('text');
+                        hpData.innerHTML = 'HP ' + data.stats[1].base_stat;
+                        hp.appendChild(hpData);
+                        let attack = document.createElement('li');
+                        let attackData = document.createElement('text');
+                        attackData.innerHTML = 'Attack ' + data.stats[2].base_stat;
+                        attack.appendChild(attackData);
+                        let defense = document.createElement('li');
+                        let defenseData = document.createElement('text');
+                        defenseData.innerHTML = 'Defense ' + data.stats[3].base_stat;
+                        defense.appendChild(defenseData);
+            
+                        stats.appendChild(hp);
+                        stats.appendChild(attack);
+                        stats.appendChild(defense);
+            
+                        infos.appendChild(name);
+                        infos.appendChild(stats);
+            
+                        card.appendChild(img);
+                        card.appendChild(infos);
+            
+                        pokedexDictionary.appendChild(card);
+            })
+        })
     })
     .catch(function(error) {
         console.log(error);
     })
-}
-
-function createPokemonCard(pokemon) {
-    fetch(pokemon.url)
-        .then(function(response) {
-            return response.json();
-        })
-        .then(function(data) {
-            let card = document.createElement('a');
-            card.classList.add('pokemon-card');
-            let img = document.createElement('img');
-            img.src = data.sprites.front_default;
-            let infos = document.createElement('div');
-            let name = document.createElement('span');
-            name.innerHTML = pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
-            let stats = document.createElement('ul');
-            let hp = document.createElement('li');
-            let hpData = document.createElement('text');
-            hpData.innerHTML = 'HP ' + data.stats[1].base_stat;
-            hp.appendChild(hpData);
-            let attack = document.createElement('li');
-            let attackData = document.createElement('text');
-            attackData.innerHTML = 'Attack ' + data.stats[2].base_stat;
-            attack.appendChild(attackData);
-            let defense = document.createElement('li');
-            let defenseData = document.createElement('text');
-            defenseData.innerHTML = 'Defense ' + data.stats[3].base_stat;
-            defense.appendChild(defenseData);
-
-            stats.appendChild(hp);
-            stats.appendChild(attack);
-            stats.appendChild(defense);
-
-            infos.appendChild(name);
-            infos.appendChild(stats);
-
-            card.appendChild(img);
-            card.appendChild(infos);
-
-            pokedexDictionary.appendChild(card);
-        })
 }
