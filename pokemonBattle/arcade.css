@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Avenir;
+}
+
+.slot-pokemon{
+    padding: 1.5rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: aliceblue;
+    }
+.game-board{
+    display: flex;
+    flex-direction: row;
+  
+    gap: 20px;
+}
+.the-game{
+    display: flex;
+    flex-direction: row;
+}
+.your-team{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    gap: 20px;
+}
+.choose-pokemon-text{
+    visibility: hidden;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Pokedex</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="title">Search for a pokemon !</div>
+<div class="search-input">
+    <label for="name-input">By name</label>
+    <input type="text" name="name-input" class="name-input">
+    <label for="id-input">By Id</label>
+    <input type="number" name="id-input" class="id-input">
+</div>
+    <div class="search-results">
+    <H2 class="pokemon-name"></H2>
+    <h2 class="pokemon-id"></h2>
+    <img src="" alt="" class="pokemon-picture">
+    <button class="add-to-team">Add to Team</button>
+
+    </div>
+
+
+    
+
+
+
+    <H2>Your team</H2>
+
+<div class="your-team">
+
+    <div class="dropzone">
+        <div class="slot-pokemon pokemon-1" draggable="true"></div>
+    </div>
+    <div class="dropzone">
+        <div class="slot-pokemon pokemon-2" draggable="true"></div>
+    </div>
+    <div class="dropzone">
+        <div class="slot-pokemon pokemon-3" draggable="true"></div>
+    </div>
+    <div class="dropzone">
+        <div class="slot-pokemon pokemon-4" draggable="true"></div>
+    </div>
+    <div class="dropzone">
+        <div class="slot-pokemon pokemon-5" draggable="true"></div>
+    </div>
+    <div class="dropzone">
+        <div class="slot-pokemon pokemon-6" draggable="true"></div>
+    </div>
+
+   
+
+</div>
+<button class="button-validate">Validate your Team</button>
+
+
+<div class="choose-game-mode">
+    <button class="button-target-arcade">Arcade Mode</button>
+    <button class="button-target-choose">Choose the number of turn you want</button>
+</div>
+<button class="start-button">Start</button>
+<script src="script.js"></script>    
+</body>
+</html>
