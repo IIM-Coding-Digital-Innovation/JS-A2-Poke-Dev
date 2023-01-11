@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.gacha {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#poke {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+    z-index: 10;
+}
+#poke2 {
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+}
+#poke img {
+    height: auto;
+    width: 200px;
+    image-rendering: pixelated;
+}
+
+.pokeball {
+    height: 200px;
+    width: 400px;
+    position: absolute;
+    border: 2px solid black;
+}
+.rouge {
+    bottom: 200px;
+    background: #ee4037;
+    border-radius: 200px 200px 0 0;
+}
+.blanc {
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0 0 200px 200px;
+}
