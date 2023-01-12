@@ -4,11 +4,57 @@ let attacksDiv = document.querySelector(".attacks")
 let yourTeamDiv = document.querySelector(".your-team")
 let youTeam =[]
 let allSlot =document.querySelectorAll(".slot-pokemon")
-
+let finishSetUp=false
 let statsDiv
+let theMove
+
+/*
+======================== FUNCTION CHOOSE YOUR MOVE ====================================
+
+*/
+function chooseMove(){
+console.log("bhzjhebdhzebdiuzehdiuzhed")
+    let theMoves = document.querySelectorAll(".move-slot")
+        console.log(theMoves)
+    theMoves.addEventListener("click",function(e){
+        console.warn(e)
+    })
+
+}
 
 
+/*
+======================== FUNCTION SEARCH ATTACKS INFO ====================================
 
+*/
+async function searchForReal(query){
+
+    let attacksSlot = document.querySelector(".attacks")
+
+    fetch(query)
+    .then(function(response){
+        return response.json();
+    })
+    .then(function(response){
+        let moveSlot = document.createElement("div")
+        moveSlot.classList.add("move-slot")
+        console.log(response)
+        moveSlot.innerHTML+=response["name"] + " "
+        moveSlot.innerHTML+=response["flavor_text_entries"][8]["flavor_text"]+ " "
+       
+        attacksSlot.appendChild(moveSlot)
+        
+    })
+    .catch(function(error){
+        console.log(error);
+    })
+}
+/*
+======================== GENERATE YOUR TEAM FROM LOCALSTORAGE====================================
+-> Get Local Storage
+-> Create the cards for the stats
+-> create the slot for every pokemon of your team 
+*/
 youTeam = JSON.parse(localStorage.pokemon1);
 
 function createStatsCard(stats){
@@ -51,12 +97,21 @@ for(let i=0;i<allSlot.length;i++){
     
 
 }
+/*
+=============================DISPLAY MOVE===================================
+*/
+function displayMoves(pickPokemonMoves){
+    console.warn(pickPokemonMoves)
 
-
+    pickPokemonMoves.forEach(e=>{
+        searchForReal(e["move"]["url"]);
+        console.log(theMove)
+    })
+ }
 
 /*
-============================================================
-GENERATE ENNEMY
+======================== GENERATE ENNEMY ====================================
+
 */
 
 let ennemySlot = document.querySelector(".ennemy")
@@ -84,7 +139,13 @@ function search(query){
 let ennemy = search(randomPokemon)
 
 
-
+/*
+================================================ CHOOSE YOUR PLAYABLE POKEMON ============================================================================
+-> Add event listener on your team
+-> move your pokemon to the "battlefield"
+-> Generate his moves
+-> Display his move
+*/
 
 
 let chooseText=document.querySelector(".choose-pokemon-text")
@@ -95,63 +156,67 @@ let pickPokemonMoves=[]
 let comnatSetUp = false
 
 function gameLoop(){
-console.log(yourPokemon)
-chooseText.style.visibility="visible"
-if (yourPokemon.childNodes.length===1){
+    console.log(yourPokemon)
+    chooseText.style.visibility="visible"
+    if (yourPokemon.childNodes.length===1){
 
+        console.log(allSlot)
+        allSlot.forEach(e=>{
+            e.addEventListener("click",function eventListener(){
+            if(yourPokemon.childNodes.length===1){
+            
+                    e.parentElement.removeChild(e)
+                    yourPokemon.appendChild(e)
+                    pickPokemon=yourPokemon.childNodes[1].childNodes[0].childNodes[0].innerHTML;
+                        youTeam.forEach(e=>{
+                            if(e["name"]===pickPokemon){
+                                pickPokemon=e;
+                                return pickPokemon
+                            }
+                        })
+                        if(pickPokemonMoves.length<3){
 
-    allSlot.forEach(e=>{
-        e.addEventListener("click",function eventListener(){
-           if(yourPokemon.childNodes.length===1){
-            e.parentElement.removeChild(e)
-            yourPokemon.appendChild(e)
-            pickPokemon=yourPokemon.childNodes[1].childNodes[0].childNodes[0].innerHTML;
-            youTeam.forEach(e=>{
-                if(e["name"]===pickPokemon){
-                    pickPokemon=e;
-                    return pickPokemon
+                                for(let i=0 ; i<4 ; i++){
+                                    console.log(pickPokemonMoves.length)
+                                    let randomMoves = Math.floor(Math.random() * 99)
+                                    pickPokemonMoves.push(pickPokemon["moves"][randomMoves])
+                                    console.log(pickPokemonMoves)
+                                }
+                        }
+                        if(pickPokemonMoves.length===4){
+                                displayMoves(pickPokemonMoves);
+                                
+                        }
                 }
+                /*this.removeEventListener('click', eventListener)*/
+                
             })
-            
-            
-           }
-           for(let i=0 ; i<4 ; i++){
-                let randomMoves = Math.floor(Math.random() * 99)
-                pickPokemonMoves.push(pickPokemon["moves"][randomMoves])
-                console.log(pickPokemonMoves)
-            
-         
-            }
-            this.removeEventListener('click', eventListener)
-            
-            
-
-        })
-        allSlot.removeEventListener("click",eventListener)
         
-    })
-   
-   
+        
+        })
+        chooseText.style.visibility="hidden"
 
-
-  
-    chooseText.style.visibility="hidden"
-    return comnatSetUp=true , pickPokemonMoves
-}   
-}
-
-
+    }else{
+        allSlot.removeEventListener("click", eventListener)
+        
+    }   
     
-gameLoop();
-displayMoves();
-  
-      
+}
+
+/*
+================================================ RUN THE FONCTION ============================================================================
+
+*/
+
+    gameLoop(chooseMove);
+
+
+
+
    
    
 
-function displayMoves(){
-   console.log(pickPokemonMoves)
-}
+
 
 
 
