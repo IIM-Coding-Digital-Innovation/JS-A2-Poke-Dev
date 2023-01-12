@@ -7,18 +7,30 @@ let allSlot =document.querySelectorAll(".slot-pokemon")
 let finishSetUp=false
 let statsDiv
 let theMove
+let theMoves
+
+/*
+======================== THE GAME  ====================================
+
+*/
+
+let displayText=document.querySelector(".the-text")
+
+
+
 
 /*
 ======================== FUNCTION CHOOSE YOUR MOVE ====================================
 
 */
 function chooseMove(){
-console.log("bhzjhebdhzebdiuzehdiuzhed")
-    let theMoves = document.querySelectorAll(".move-slot")
-        console.log(theMoves)
-    theMoves.addEventListener("click",function(e){
-        console.warn(e)
-    })
+    console.log("AHAHHAHAHHAHHAHAHHAHHA")
+    attacksDiv.addEventListener("click", function(event) {
+        if (event.target.classList.contains('move-slot')) {
+            console.warn(event.target)
+        }
+    });
+    
 
 }
 
@@ -27,7 +39,7 @@ console.log("bhzjhebdhzebdiuzehdiuzhed")
 ======================== FUNCTION SEARCH ATTACKS INFO ====================================
 
 */
-async function searchForReal(query){
+function searchForReal(query){
 
     let attacksSlot = document.querySelector(".attacks")
 
@@ -38,7 +50,6 @@ async function searchForReal(query){
     .then(function(response){
         let moveSlot = document.createElement("div")
         moveSlot.classList.add("move-slot")
-        console.log(response)
         moveSlot.innerHTML+=response["name"] + " "
         moveSlot.innerHTML+=response["flavor_text_entries"][8]["flavor_text"]+ " "
        
@@ -105,8 +116,10 @@ function displayMoves(pickPokemonMoves){
 
     pickPokemonMoves.forEach(e=>{
         searchForReal(e["move"]["url"]);
-        console.log(theMove)
+       
+       
     })
+   
  }
 
 /*
@@ -155,7 +168,7 @@ let pickPokemon
 let pickPokemonMoves=[]
 let comnatSetUp = false
 
-function gameLoop(){
+let gameLoopPromise=new Promise((resolve,reject)=>{
     console.log(yourPokemon)
     chooseText.style.visibility="visible"
     if (yourPokemon.childNodes.length===1){
@@ -186,6 +199,8 @@ function gameLoop(){
                         if(pickPokemonMoves.length===4){
                                 displayMoves(pickPokemonMoves);
                                 
+                                resolve();
+                                
                         }
                 }
                 /*this.removeEventListener('click', eventListener)*/
@@ -201,14 +216,17 @@ function gameLoop(){
         
     }   
     
-}
+})
 
 /*
 ================================================ RUN THE FONCTION ============================================================================
 
 */
+gameLoopPromise.then(()=>{
+    console.log("heu")
+   chooseMove()
 
-    gameLoop(chooseMove);
+})
 
 
 
