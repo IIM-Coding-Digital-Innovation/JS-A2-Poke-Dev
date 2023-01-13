@@ -78,6 +78,7 @@ function loadPage(url) {
       let pokemonPromises = data.results.map((pokemon) => {
         return fetch(pokemon.url).then((response) => response.json());
       });
+
       Promise.all(pokemonPromises)
         .then((pokemonData) => {
           pokemonData.forEach((data, index) => {
