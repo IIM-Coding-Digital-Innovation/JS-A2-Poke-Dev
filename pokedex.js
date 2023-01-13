@@ -275,15 +275,8 @@ function displayPokemonInfos(pokemonName) {
               return response.json();
             })
             .then(function (data) {
-              console.log('wesh', data.chain);
-              if (data.chain.evolves_to.length > 0) {
-                displayEvolutions(evolutions, data.chain);
-              } else {
-                let li = document.createElement('li');
-                li.innerHTML = 'No evolution';
-                evolutions.appendChild(li);
-                overviewParent.style.display = 'flex';
-              }
+              console.log(data.chain);
+              displayEvolutions(evolutions, data.chain);
             });
         });
     })
@@ -297,9 +290,10 @@ function displayPokemonInfos(pokemonName) {
 
 function displayEvolutions(parent, chain) {
   let evolution = document.createElement('li');
-  console.log('hey', chain);
+  console.log(chain);
+  getId(chain.species.url);
 
-  fetch('https://pokeapi.co/api/v2/pokemon/' + getId(chain.species.url))
+  fetch('https://pokeapi.co/api/v2/pokemon/' + chain.species.name)
     .then(function (response) {
       return response.json();
     })
@@ -362,5 +356,6 @@ function rain(imgUrl) {
 }
 
 function getId(url) {
+  url = url.split('/');
   return url[url.length - 2];
 }
