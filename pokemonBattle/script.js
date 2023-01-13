@@ -159,7 +159,7 @@ document.addEventListener("dragenter", function( event ) {
     event.preventDefault();
     // Met en surbrillance la cible de drop potentielle lorsque l'élément glissable y entre
     if ( event.target.className == "dropzone" ) {
-        event.target.style.background = "#EE534F";
+        event.target.style.background = "#green";
     }
 
 }, false);
