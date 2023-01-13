@@ -9,16 +9,21 @@ button {
     padding: 10px;
 }
 
+.screen {
+    display: grid;
+    grid-template-rows: 100vh;
+    grid-template-columns: 1fr 1fr;
+}
+
 .gacha {
     position: absolute;
     top: 15%;
-    left: 50%;
-    transform: translate(-50%);
+    left: 10%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 #poke {
@@ -30,6 +35,8 @@ button {
     align-items: center;
     border-radius: 200px;
     z-index: 10;
+    text-transform: capitalize;
+    font-size: 16;
 }
 #poke2 {
     position: absolute;
@@ -65,19 +72,33 @@ button {
     border-radius: 0 0 200px 200px;
 }
 
-.drag{
-    position: absolute;
-    right: 0;
+.pokke {
+    grid-column: 2;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.drag{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
-    padding: 10px;
-    height: 100vh;
-    
+    padding: 10px;   
 }
 .droptarget {
-    height: 90px;
-    width: 90px;
+    height: 150px;
+    width: 150px;
     border: 2px solid rgb(0, 0, 0);
     border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.droptarget img {
+    height: 100px;
+    width: 100px;
 }

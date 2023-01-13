@@ -9,26 +9,36 @@
     <title>Home</title>
 </head>
 <body>
-
-    <div class="drag">
-        <div class="droptarget"></div>
-        <div class="droptarget"></div>
-        <div class="droptarget"></div>
-        <div class="droptarget"></div>
-        <div class="droptarget"></div>
-        <div class="droptarget"></div>
-    </div>
     
-
-    <div class="gacha">
-        <button id="button">Get a capsule</button>
-        <ul id="poke" draggable="true" id="dragtarget3">
-        </ul>
-        <ul id="poke2">
-            <span class="pokeball rouge"></span>
-            <span class="pokeball blanc"></span>
-        </ul>
+    <div class="screen">
+        <div class="gacha">
+            <div class="button">
+                <button id="button" value="2">Get a capsule for 2€</button>
+                <button id="reset" onclick="location.reload()">RESET GACHA</button>
+            </div>
+            
+            <ul id="poke" draggable="true" id="dragtarget3"></ul>
+            <ul id="poke2">
+                <span class="pokeball rouge"></span>
+                <span class="pokeball blanc"></span>
+            </ul>
+        </div>
+    
+        <div class="pokke">
+            <h3>Total : <span id="affichage">12</span> €</h3>
+            <div class="drag">
+                <div id="droptarget" class="droptarget"></div>
+                <div id="droptarget" class="droptarget"></div>
+                <div id="droptarget" class="droptarget"></div>
+                <div id="droptarget" class="droptarget"></div>
+                <div id="droptarget" class="droptarget"></div>
+                <div id="droptarget" class="droptarget"></div>
+            </div>
+        </div>
+        
     </div>
+
+    
 
 <script src="gachapon.js"></script>
 </body>
