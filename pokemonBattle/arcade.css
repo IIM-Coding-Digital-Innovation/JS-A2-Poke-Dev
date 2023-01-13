@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Avenir;
+}
+.the-page{
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   justify-content: flex-start;
+    
+}
+.slot-pokemon{
+    padding: 0.8rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #98cb98;
+    box-shadow: inset 2px 2px 9px black;
+    border-radius: 1rem;
+    }
+.game-board{
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    grid-column: 2/3;
+    gap: 100px;
+    width: 80%;
+    background-color: white;
+    box-shadow: inset 2px 2px 12px #000;
+    border-radius: 1rem;
+    padding: 1rem;
+    justify-items: stretch;
+}
+.the-game{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 20PX;
+    justify-content: center;
+    align-items: center;
+    
+}
+.your-team{
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    overflow: scroll;
+    
+    width: fit-content;
+    font-size: 12px;
+    gap: 20px;
+    
+}
+.choose-pokemon-text{
+    visibility: hidden;
+}
+
+.move-slot{
+    padding: 2rem;
+    margin: 1rem;
+    background-color: white;
+   border: 1px solid black;
+    border-radius: .8em;
+ 
+    display: inline-block;
+}
+
+
+.attacks{
+   display: grid;
+   grid-template-columns: repeat(2,1fr);
+   margin: 50px;
+}
+
+.ennemy{
+   
+    padding: 2rem;
+    box-shadow: inset 2px 2px 8px black;
+    border-radius: 1rem;
+}
