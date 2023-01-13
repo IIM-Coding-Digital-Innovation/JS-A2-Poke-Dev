@@ -44,6 +44,9 @@ butt.addEventListener("click", () => {
 /* Event fired on the drag target */
 document.ondragstart = function(event) {
     event.dataTransfer.setData("Text", event.target.id)
+    if (event.path[1].classList.contains("droptarget")) {
+        event.path[1].style.opacity = "0.1"
+    }
 };
 
 /* Events fired on the drop target */
