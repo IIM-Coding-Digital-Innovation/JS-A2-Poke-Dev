@@ -45,7 +45,7 @@ butt.addEventListener("click", () => {
 document.ondragstart = function(event) {
     event.dataTransfer.setData("Text", event.target.id)
     if (event.path[1].classList.contains("droptarget")) {
-        event.path[1].style.opacity = "0.1"
+        event.path[1].classList.remove("couleur")
     }
 };
 
@@ -59,7 +59,7 @@ document.ondrop = function(event) {
     var data = event.dataTransfer.getData("Text");
     event.target.appendChild(document.getElementById(data)) 
     if (event.target) {
-        event.target.style.opacity = "1"
+        event.target.classList.add("couleur")
     }
 }
    
