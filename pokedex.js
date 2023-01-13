@@ -16,6 +16,9 @@ let overviewParent = document.querySelector('#pokemon-overview');
 let overview = document.querySelector('#overview-card');
 let evolutions;
 let speciesUrl;
+let rainContainer = document.querySelector('#rain');
+let clickCount = 0;
+let timeout;
 
 document.addEventListener('keydown', function (event) {
   keyboardLog += event.key;
@@ -25,6 +28,9 @@ document.addEventListener('keydown', function (event) {
   }
   if (document.activeElement === searchInput && event.key === 'Enter') {
     displayPokemonInfos(searchInput.value);
+  }
+  if (event.key === 'Escape') {
+    overviewParent.style.display = null;
   }
 });
 
@@ -219,6 +225,33 @@ function displayPokemonInfos(pokemonName) {
       overview.appendChild(primaryPokemon);
       overview.appendChild(title);
       overview.appendChild(evolutions);
+
+      img.addEventListener('click', function () {
+        console.log(clickCount);
+        clickCount++;
+        if (clickCount === 3) {
+          rain(img.src);
+          clickCount = 0;
+        } else {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            clickCount = 0;
+          }, 300);
+        }
+      });
+
+      imgShiny.addEventListener('click', function () {
+        clickCount++;
+        if (clickCount === 3) {
+          rain(imgShiny.src);
+          clickCount = 0;
+        } else {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => {
+            clickCount = 0;
+          }, 300);
+        }
+      });
     })
     .then(() => {
       fetch(speciesUrl)
@@ -296,4 +329,20 @@ function displayEvolutions(parent, chain) {
         overviewParent.style.display = 'flex';
       }
     });
+}
+
+rain(
+  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png'
+);
+
+function rain(imgUrl) {
+  for (let i = 0; i < 200; i++) {
+    let rainDrop = document.createElement('img');
+    rainDrop.classList.add('raindrop');
+    rainDrop.src = imgUrl;
+    rainDrop.style.left = Math.floor(Math.random() * 100) + 'vw';
+    rainDrop.style.scale = 0.3 + Math.random() * 1.5;
+    rainDrop.style.animationDelay = Math.random() * 2 + 's';
+    document.querySelector('body').appendChild(rainDrop);
+  }
 }

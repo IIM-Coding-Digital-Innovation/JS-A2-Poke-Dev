@@ -359,6 +359,16 @@ img.shiny {
     background-color: rgba(128, 128, 128, 0.546);
 }
 
+.raindrop {
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%) translateY(-100%);
+    image-rendering: pixelated;
+    z-index: 100;
+    animation: rain 3s ease;
+    opacity: 0;
+}
+
 @media screen and (max-width: 1400px) {
     #dictionary {
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -380,5 +390,16 @@ img.shiny {
 @media screen and (max-width: 700px) {
     .pokemon-card img {
         height: 120px;
+    }
+}
+
+@keyframes rain {
+    from {
+        opacity: 1;
+        translate: 0 0;
+    }
+    to {
+        opacity: 1;
+        translate: 0 200vh;
     }
 }
