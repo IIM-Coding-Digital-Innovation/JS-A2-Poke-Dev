@@ -37,26 +37,29 @@ if (document.URL.includes('register.html')) {
 
     checkPasswords();
     if (!submitBtn.disabled) {
-      axios
-        .post(
-          'https://api.airtable.com/v0/appDaIOPzRpXiYeF2/Table%201',
-          {
-            fields: {
-              username: document.querySelector('#Name').value,
-              email: document.querySelector('#EmailAddress').value,
-              password: document.querySelector('#password').value,
-            },
+      fetch('https://api.airtable.com/v0/appDaIOPzRpXiYeF2/Table%201', {
+        method: 'POST',
+        headers: {
+          Authorization: 'Bearer ' + apiKey,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          fields: {
+            username: document.querySelector('#Name').value,
+            email: document.querySelector('#EmailAddress').value,
+            password: document.querySelector('#password').value,
           },
-          { headers: headers_ }
-        )
-        .then((resp) => {
+        }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
           console.log('success!');
           Cookies.set('username', document.querySelector('#Name').value, {
             expires: 7,
           });
           window.location.href = 'home.html';
         })
-        .catch(function (error) {
+        .catch((error) => {
           console.log(error);
         });
     }
@@ -80,13 +83,16 @@ if (document.URL.includes('login.html')) {
     const password = document.getElementById('password').value;
 
     // Send a GET request to the Airtable API to retrieve the data
-    axios
-      .get('https://api.airtable.com/v0/appDaIOPzRpXiYeF2/Table%201', {
-        headers: { Authorization: 'Bearer ' + apiKey },
-      })
-      .then((response) => {
+    fetch('https://api.airtable.com/v0/appDaIOPzRpXiYeF2/Table%201', {
+      method: 'GET',
+      headers: {
+        Authorization: 'Bearer ' + apiKey,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
         // Check if the username and password match the data in the Airtable
-        const records = response.data.records;
+        const records = data.records;
         let match = false;
         records.forEach((record) => {
           if (
