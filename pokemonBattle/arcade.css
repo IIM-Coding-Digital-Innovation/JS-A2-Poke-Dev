@@ -19,12 +19,14 @@
     gap: 20px;
     align-items: center;
     justify-content: flex-end;
-    background-color: aliceblue;
+    background-color: #98cb98;
+    box-shadow: inset 2px 2px 9px black;
+    border-radius: 1rem;
     }
 .game-board{
     display: flex;
     flex-direction: column;
-    height: 900px;
+    height: 700px;
     grid-column: 2/3;
     gap: 100px;
     width: 80%;
@@ -46,7 +48,7 @@
 .your-team{
     display: flex;
     flex-direction: column;
-    height: 900px;
+    height: 700px;
     overflow: scroll;
     
     width: fit-content;
@@ -62,9 +64,9 @@
     padding: 2rem;
     margin: 1rem;
     background-color: white;
-    border: 5px solid black;
+   border: 1px solid black;
     border-radius: .8em;
-    box-shadow: 0 0 0 .8em black;
+ 
     display: inline-block;
 }
 
@@ -73,4 +75,11 @@
    display: grid;
    grid-template-columns: repeat(2,1fr);
    margin: 50px;
+}
+
+.ennemy{
+   
+    padding: 2rem;
+    box-shadow: inset 2px 2px 8px black;
+    border-radius: 1rem;
 }
