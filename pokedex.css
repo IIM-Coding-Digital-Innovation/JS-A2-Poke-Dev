@@ -395,147 +395,183 @@ img.shiny {
 }
 
 .normal .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .normal .pokemon-card.normal  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .fire .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .fire .pokemon-card.fire  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .water .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .water .pokemon-card.water  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .grass .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .grass .pokemon-card.grass  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .electric .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .electric .pokemon-card.electric  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .ice .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .ice .pokemon-card.ice  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .fighting .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .fighting .pokemon-card.fighting  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .poison .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .poison .pokemon-card.poison  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .ground .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .ground .pokemon-card.ground  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .flying .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .flying .pokemon-card.flying  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .psychic .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .psychic .pokemon-card.psychic  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .bug .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .bug .pokemon-card.bug  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .rock .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .rock .pokemon-card.rock  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .ghost .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .ghost .pokemon-card.ghost  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .dark .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .dark .pokemon-card.dark  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .dragon .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .dragon .pokemon-card.dragon  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .steel .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .steel .pokemon-card.steel  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 .fairy .pokemon-card{
-    display: none;
+    opacity: .2;
+    pointer-events: none;
 }
 
 .fairy .pokemon-card.fairy  {
-    display: block;
+    opacity: 1;
+    pointer-events: all;
 }
 
 
