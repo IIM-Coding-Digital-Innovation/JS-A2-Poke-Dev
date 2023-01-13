@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page d'inscription</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   
+    <form id="contactForm">
+        <h1>inscription</h1>
+        <div>
+          <input type="text" id="Name" name=”Name” placeholder="Your Name">
+        </div>
+        <div>
+          <input type="text" name="EmailAddress" id="EmailAddress" placeholder="Your Email">
+        </div>
+        <div>
+         <textarea id="Message" name="Message" cols="30" rows="6" placeholder="Your Message"></textarea>
+        <div>
+          <input type="submit" value="send">
+        </div>
+        </div>
+        </form>
+
+        <a href="login.html"><p>Already registerd ? Connect </p></a>
+
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module">
+                    
+                    var thisForm = document.getElementById("contactForm");
+                    console.warn(document.querySelector("#Name"))
+                    const headers_ = {
+                        'Authorization': 'Bearer keyQRldQzZIt9Qpeu',
+                        'Content-Type': 'application/json'
+                    };
+                    // When the form is submitted...
+                    thisForm.addEventListener("submit", function(event) {
+                        console.log("hey")
+                    event.preventDefault();
+                    // POST the data
+                    axios.post("https://api.airtable.com/v0/appDaIOPzRpXiYeF2/Table%201",
+                    {
+                    "fields": {
+                        "username": document.querySelector("#Name").value,
+                        "email": document.querySelector("#EmailAddress").value,
+                        "password": document.querySelector("#Message").value
+                    }
+                    }, {headers: headers_}
+                    )
+                    .then((resp) => {
+                    console.log("success!")
+                    })
+                    .catch(function (error) {
+                    console.log(error);
+                    });
+                    });
+
+
+    </script>
+</body>
+</html>
