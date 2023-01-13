@@ -209,10 +209,10 @@ let startButton =document.querySelector(".start-button")
 let yourTeam = document.querySelector(".your-team")
 
 startButton.addEventListener("click",function(){
-    if(arcadeModeButton.classList.contains("active")){
+   
         localStorage.setItem('pokemon1', JSON.stringify(team));
         document.location.href = "arcade.html";
-    }
+    
 })
 
 validateTeam.addEventListener("click",function(){
