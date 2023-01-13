@@ -644,7 +644,9 @@ padding: 2rem;
 /* 
 ============================ COMBAT POKEMON ==================================
 */
-
+.choose-game-button{
+    
+}
 .start-button{
     display: block;
     margin: 0 auto;
