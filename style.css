@@ -11,7 +11,7 @@ body {
     background-color: rgb(74, 74, 74);
 }
 
-.pagination {
+.pagination, .filters {
     position: fixed;
     width: 100%;
     bottom: 0;
@@ -21,6 +21,12 @@ body {
     padding: 2rem 1rem;
     z-index: 3;
     background: linear-gradient(0deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);;
+}
+
+.filters {
+    top: 0;
+    height: fit-content;
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);;
 }
 
 .pagination img {
@@ -134,6 +140,7 @@ body {
 
 #pokemon-overview {
     display: none;
+    z-index: 100;
 }
 
 #pokemon-overview .separator {
@@ -162,6 +169,7 @@ body {
     align-items: center;
     width: min-content;
     z-index: 1;
+    margin-bottom: 0;
 }
 
 #overview-card img {
@@ -183,7 +191,7 @@ body {
     padding: 1rem;
     padding-bottom: 0;
     max-width: 100vw;
-    margin-bottom: 154px;
+    margin: 154px 0px;
 }
 
 .pagination input {
@@ -204,11 +212,26 @@ body {
     height: 32px;
 }
 
-.pagination button {
+.pagination button, .filters button {
     font-size: 2rem;
     height: 90px;
     width: 200px;
     border: 2px solid black;
+}
+
+.filters button select {
+    border: none;
+    background-color: transparent;
+    font-size: 2rem;
+}
+
+.filters button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: min-content;
+    padding: 1rem;
 }
 
 .pokemon-card {
@@ -291,73 +314,218 @@ img.shiny {
     opacity: .5;
 }
 
-.water {
+.types .water {
     background: rgba(0, 51, 255, 0.3);
 }
 
-.fire {
+.types .fire {
     background-color: #ff4d00a4;
 }
 
-.flying {
+.types .flying {
     background: #00ffff32;
 }
 
-.grass, .bug {
+.types .grass, .types .bug {
     background-color: #11811185;
 }
 
-.poison {
+.types .poison {
     background-color: #ac0e8c85;
 }
 
-.normal {
+.types .normal {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.psychic {
+.types .psychic {
     background-color: #fa73fa95;
 }
 
-.electric {
+.types .electric {
     background-color: #ffde0695;
 }
 
-.dark {
+.types .dark {
     background-color: #2e2e2eb5;
 }
 
-.rock {
+.types .rock {
     background-color: rgba(128, 128, 128, 0.6);
 }
 
-.ice {
+.types .ice {
     background-color: rgba(56, 213, 252, 0.457);
 }
 
-.fairy {
+.types .fairy {
     background-color: rgba(255, 124, 124, 0.717);
 }
 
-.ground {
+.types .ground {
     background-color: rgba(128, 0, 0, 0.358);
 }
 
-.fighting {
+.types .fighting {
     background-color: rgba(255, 0, 0, 0.63);
 }
 
-.ghost {
+.types .ghost {
     background-color: rgba(103, 47, 162, 0.717);
 }
 
-.dragon {
+.types .dragon {
     background-color: rgba(94, 0, 128, 0.63);
 }
 
-.steel {
+.types .steel {
     background-color: rgba(128, 128, 128, 0.546);
 }
+
+.normal .pokemon-card{
+    display: none;
+}
+
+.normal .pokemon-card.normal  {
+    display: block;
+}
+
+.fire .pokemon-card{
+    display: none;
+}
+
+.fire .pokemon-card.fire  {
+    display: block;
+}
+
+.water .pokemon-card{
+    display: none;
+}
+
+.water .pokemon-card.water  {
+    display: block;
+}
+
+.grass .pokemon-card{
+    display: none;
+}
+
+.grass .pokemon-card.grass  {
+    display: block;
+}
+
+.electric .pokemon-card{
+    display: none;
+}
+
+.electric .pokemon-card.electric  {
+    display: block;
+}
+
+.ice .pokemon-card{
+    display: none;
+}
+
+.ice .pokemon-card.ice  {
+    display: block;
+}
+
+.fighting .pokemon-card{
+    display: none;
+}
+
+.fighting .pokemon-card.fighting  {
+    display: block;
+}
+
+.poison .pokemon-card{
+    display: none;
+}
+
+.poison .pokemon-card.poison  {
+    display: block;
+}
+
+.ground .pokemon-card{
+    display: none;
+}
+
+.ground .pokemon-card.ground  {
+    display: block;
+}
+
+.flying .pokemon-card{
+    display: none;
+}
+
+.flying .pokemon-card.flying  {
+    display: block;
+}
+
+.psychic .pokemon-card{
+    display: none;
+}
+
+.psychic .pokemon-card.psychic  {
+    display: block;
+}
+
+.bug .pokemon-card{
+    display: none;
+}
+
+.bug .pokemon-card.bug  {
+    display: block;
+}
+
+.rock .pokemon-card{
+    display: none;
+}
+
+.rock .pokemon-card.rock  {
+    display: block;
+}
+
+.ghost .pokemon-card{
+    display: none;
+}
+
+.ghost .pokemon-card.ghost  {
+    display: block;
+}
+
+.dark .pokemon-card{
+    display: none;
+}
+
+.dark .pokemon-card.dark  {
+    display: block;
+}
+
+.dragon .pokemon-card{
+    display: none;
+}
+
+.dragon .pokemon-card.dragon  {
+    display: block;
+}
+
+.steel .pokemon-card{
+    display: none;
+}
+
+.steel .pokemon-card.steel  {
+    display: block;
+}
+
+.fairy .pokemon-card{
+    display: none;
+}
+
+.fairy .pokemon-card.fairy  {
+    display: block;
+}
+
 
 .raindrop {
     position: fixed;

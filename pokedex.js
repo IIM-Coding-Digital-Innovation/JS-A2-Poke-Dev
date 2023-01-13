@@ -19,6 +19,12 @@ let speciesUrl;
 let rainContainer = document.querySelector('#rain');
 let clickCount = 0;
 let timeout;
+let typeSelect = document.querySelector('#type-select');
+
+typeSelect.addEventListener('change', () => {
+  pokedexDictionary.className =
+    typeSelect.value == 'all' ? '' : typeSelect.value;
+});
 
 document.addEventListener('keydown', function (event) {
   keyboardLog += event.key;
@@ -72,10 +78,10 @@ function loadPage(url) {
       let pokemonPromises = data.results.map((pokemon) => {
         return fetch(pokemon.url).then((response) => response.json());
       });
-      console.log(data.results);
       Promise.all(pokemonPromises)
         .then((pokemonData) => {
           pokemonData.forEach((data, index) => {
+            console.log(data);
             let card = document.createElement('a');
             card.classList.add('pokemon-card');
             let noise = document.createElement('img');
@@ -117,6 +123,10 @@ function loadPage(url) {
 
             card.addEventListener('click', () => {
               displayPokemonInfos(data.name);
+            });
+
+            data.types.forEach((type) => {
+              card.classList.add(type.type.name);
             });
 
             stats.appendChild(hp);
