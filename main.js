@@ -1,5 +1,3 @@
-
-
 getPokeData = async function() {
     const pokemon = await getPokemon();
     const randomPokemon = shuffle(pokemon);
@@ -27,21 +25,23 @@ getPokeData = async function() {
   }
   
   
-  function shuffle(unshuffled) {
-    const shuffled = unshuffled
-      .map((value) => ({ value, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
-    
-    return shuffled;
+
+
+function shuffle(unshuffled) {
+    for (let i = unshuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [unshuffled[i], unshuffled[j]] = [unshuffled[j], unshuffled[i]];
+    }
+    return unshuffled;
   }
+
   
   function getchoices(randomPokemon) {
     return randomPokemon.splice(0, 4);
   }
   
   function getPokemonImage({ url }) {
-    console.log('hey', url)
+    // console.log('hey', url)
     const number = getNumber(url);
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`;
   };
@@ -71,17 +71,24 @@ getPokeData = async function() {
   NextBtn.addEventListener('click', fetchData);
   addAnswer();
   
+
+
   
   async function fetchData() {
     PokeData = await getPokeData();
     showimage();
     displayChoices();
+    // document.getElementById('text').style.display='none'
+
   }
-  
+
+    
   
   function showimage() {
       pokemonImage.src = PokeData.correct.image;
   }
+
+
   
   function displayChoices() {
     const { pokemonChoices } = PokeData;
@@ -100,12 +107,36 @@ getPokeData = async function() {
   
       e.target.classList.add(resultClass);
       PokemonName();
+      if(resultClass==='correct') {
+        document.getElementById('text').style.display='none'
+    } else {  
+        document.getElementById('text').style.display='block'
+    }
+
     });
   }
+
+
+
+//   function NextPoke() {
+//     choices.addEventListener('click', e => {
+//         const { name } = e.target.dataset;
+//         const resultClass = (name === PokeData.correct.name) ?
+//           'correct' : 'incorrect';
+    
+//         e.target.classList.add(resultClass);
+//         PokemonName();
+
+  
+//       });
+    
+
+//   }
   
   function  PokemonName() {
     main.classList.add('pokename');
     text.textContent = `${PokeData.correct.name}!`;
+ 
   }
   
   
