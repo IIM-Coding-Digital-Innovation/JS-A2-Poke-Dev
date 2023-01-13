@@ -181,7 +181,9 @@ function createStatsCard(stats){
     statsDiv=document.createElement("div")
     statsDiv.classList.add("stats-div")
     stats.forEach(e=>{
-        if(e["stat"]["name"]=""){}
+        if(e["stat"]["name"]="hp"){
+            
+        }
         let stats=document.createElement("div")
         stats.classList.add('little-stats')
         stats.innerHTML+=e["stat"]["name"]+" :"
