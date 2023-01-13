@@ -1,83 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<!DOCTYPE html>
-<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Pokedex</title>
+    <title>Document</title>
+    <link rel="stylesheet" href="pokedex.css" />
   </head>
-  <body class="pokedex-page">
-    <div>
-      <header>
-        <nav>
-          <a href="./home.html">Home</a>
-          <a href="./login.html">Account</a>
-        </nav>
-      </header>
-      <main>
-        <div id="rain"></div>
-        <div id="pokedex">
-          <div id="pokemon-overview">
-            <div id="overview-card"></div>
-            <div class="exit"></div>
-          </div>
-          <div id="dictionary"></div>
-          <div class="filters">
-            <button>
-              Type:
-              <select name="type" id="type-select">
-                <option value="all">all</option>
-                <option value="water">water</option>
-                <option value="fire">fire</option>
-                <option value="flying">flying</option>
-                <option value="grass">grass</option>
-                <option value="bug">bug</option>
-                <option value="poison">poison</option>
-                <option value="normal">normal</option>
-                <option value="psychic">psychic</option>
-                <option value="electric">electric</option>
-                <option value="dark">dark</option>
-                <option value="rock">rock</option>
-                <option value="ice">ice</option>
-                <option value="fairy">fairy</option>
-                <option value="ground">ground</option>
-                <option value="dragon">dragon</option>
-                <option value="ghost">ghost</option>
-                <option value="dragon">dragon</option>
-                <option value="steel">steel</option>
-              </select>
-            </button>
-          </div>
-          <div class="pagination">
-            <input
-              type="text"
-              id="search-input"
-              placeholder="Enter a name or id"
-            />
-            <button id="search">
-              <img src="./img/pngaaa.com-4891981.png" alt="" />
-            </button>
-            <button id="previous">&lt Previous</button>
-            <button id="next">Next &gt</button>
-          </div>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./style.css" />
+        <title>Pokedex</title>
+      </head>
+      <body class="pokedex-page">
+        <div>
+          <header>
+            <nav>
+              <a href="./home.html">Home</a>
+              <a href="./login.html">Account</a>
+            </nav>
+          </header>
+          <main>
+            <div id="rain"></div>
+            <div id="pokedex">
+              <div id="pokemon-overview">
+                <div id="overview-card"></div>
+                <div class="exit"></div>
+              </div>
+              <div id="dictionary"></div>
+              <div class="filters">
+                <button>
+                  Type:
+                  <select name="type" id="type-select">
+                    <option value="all">all</option>
+                    <option value="water">water</option>
+                    <option value="fire">fire</option>
+                    <option value="flying">flying</option>
+                    <option value="grass">grass</option>
+                    <option value="bug">bug</option>
+                    <option value="poison">poison</option>
+                    <option value="normal">normal</option>
+                    <option value="psychic">psychic</option>
+                    <option value="electric">electric</option>
+                    <option value="dark">dark</option>
+                    <option value="rock">rock</option>
+                    <option value="ice">ice</option>
+                    <option value="fairy">fairy</option>
+                    <option value="ground">ground</option>
+                    <option value="dragon">dragon</option>
+                    <option value="ghost">ghost</option>
+                    <option value="dragon">dragon</option>
+                    <option value="steel">steel</option>
+                  </select>
+                </button>
+              </div>
+              <div class="pagination">
+                <input
+                  type="text"
+                  id="search-input"
+                  placeholder="Enter a name or id"
+                />
+                <button id="search">
+                  <img src="./img/pngaaa.com-4891981.png" alt="" />
+                </button>
+                <button id="previous">&lt Previous</button>
+                <button id="next">Next &gt</button>
+              </div>
+            </div>
+          </main>
         </div>
-      </main>
-    </div>
+      </body>
+      <script src="./pokedex.js"></script>
+    </html>
   </body>
-  <script src="./pokedex.js"></script>
-</html>
-    
-
-</body>
 </html>
