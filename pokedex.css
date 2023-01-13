@@ -11,6 +11,18 @@ body {
     background-color: rgb(74, 74, 74);
 }
 
+header {
+    position: fixed;
+    top: 0;
+    z-index: 10000;
+}
+
+nav {
+    font-size: 2rem;
+    background-color: white;
+    padding: 1rem;
+}
+
 .pagination, .filters {
     position: fixed;
     width: 100%;
