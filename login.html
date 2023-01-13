@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="title">Login</h1>
+    <form id="loginForm">
+      <div>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          placeholder="Enter your username"
+        />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+        />
+      </div>
+      <div>
+        <input type="submit" value="Login" />
+      </div>
+      <a href="register.html"
+        ><p>Register now , if you dont have an account</p></a
+      >
+    </form>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="user.js"></script>
+    <script>
+      /*  // Get the login form
+        const loginForm = document.getElementById("loginForm");
+
+        // When the form is submitted...
+        loginForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get the user's input
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Send a GET request to the Airtable API to retrieve the data
+            axios.get("https://api.airtable.com/v0/appDaIOPzRpXiYeF2/Table%201", { headers: { 'Authorization': 'Bearer keykieAZicRVteRKp' } })
+                .then((response) => {
+                    // Check if the username and password match the data in the Airtable
+                    const records = response.data.records;
+                    let match = false;
+                    records.forEach(record => {
+                        if (record.fields.username === username && record.fields.password === password) {
+                            match = true;
+                        }
+                    });
+
+                    // If the username and password match, redirect the user to the home page
+                    if (match) {
+                        Cookies.set('username', username, { expires: 7 });
+                        window.location.href = "home.html";
+                    } else {
+                        alert("Incorrect username or password. Please try again.");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+                
+        });
+        */
+    </script>
+  </body>
+</html>
