@@ -774,3 +774,115 @@ animation: bounce 0.5s ease-in-out;
 /*
 ====================================== POKEDEX ===================================
 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+    padding: 10px;
+}
+
+.screen {
+    display: grid;
+    grid-template-rows: 100vh;
+    grid-template-columns: 1fr 1fr;
+}
+
+.gacha {
+    position: absolute;
+    top: 15%;
+    left: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#poke {
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+    z-index: 10;
+    text-transform: capitalize;
+    font-size: 24px;
+
+}
+#poke2 {
+    position: absolute;
+    bottom: 0;
+    height: 400px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 200px;
+}
+#poke img {
+    height: auto;
+    width: 200px;
+    image-rendering: pixelated;
+}
+
+.pokeball {
+    height: 200px;
+    width: 400px;
+    position: absolute;
+    border: 2px solid black;
+}
+.rouge {
+    bottom: 200px;
+    background: #ee4037;
+    border-radius: 200px 200px 0 0;
+}
+.blanc {
+    bottom: 0;
+    background-color: rgb(255, 255, 255);
+    border-radius: 0 0 200px 200px;
+}
+
+.pokke {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+.drag{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;   
+}
+.droptarget {
+    height: 150px;
+    width: 150px;
+    border: 2px solid rgb(0, 0, 0);
+    border-radius: 3px;
+    opacity: 0.1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.droptarget img {
+    height: 150px;
+    width: 150px;
+    border-radius: 3px;
+    image-rendering: pixelated;
+}
+
+.couleur {
+    opacity: 1;
+}

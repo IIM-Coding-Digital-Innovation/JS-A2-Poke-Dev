@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Home</title>
+</head>
+<body>
+    
+    <div class="screen">
+        <div class="gacha">
+            <div class="button">
+                <button id="button" value="2">Get a capsule for 2€</button>
+                <button id="reset" onclick="location.reload()">RESET GACHA</button>
+            </div>
+            
+            <ul id="poke" draggable="true" id="dragtarget3"></ul>
+            <ul id="poke2">
+                <span class="pokeball rouge"></span>
+                <span class="pokeball blanc"></span>
+            </ul>
+        </div>
+    
+        <div class="pokke">
+            <h3>Total : <span id="affichage">12</span> €</h3>
+            <div class="drag">
+                <div id="drop1" class="droptarget"></div>
+                <div id="drop2" class="droptarget"></div>
+                <div id="drop3" class="droptarget"></div>
+                <div id="drop4" class="droptarget"></div>
+                <div id="drop5" class="droptarget"></div>
+                <div id="drop6" class="droptarget"></div>
+            </div>
+        </div>
+        
+    </div>
+
+<script src="gachapon.js"></script>
+</body>
+</html>
