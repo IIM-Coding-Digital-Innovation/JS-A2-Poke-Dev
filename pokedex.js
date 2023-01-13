@@ -123,7 +123,7 @@ function loadPage(url) {
             defense.appendChild(defenseData);
 
             card.addEventListener('click', () => {
-              displayPokemonInfos(data.name);
+              displayPokemonInfos(data.id);
             });
 
             data.types.forEach((type) => {
@@ -276,8 +276,15 @@ function displayPokemonInfos(pokemonName) {
               return response.json();
             })
             .then(function (data) {
-              console.log(data.chain);
-              displayEvolutions(evolutions, data.chain);
+              console.log('wesh', data.chain);
+              if (data.chain.evolves_to.length > 0) {
+                displayEvolutions(evolutions, data.chain);
+              } else {
+                let li = document.createElement('li');
+                li.innerHTML = 'No evolution';
+                evolutions.appendChild(li);
+                overviewParent.style.display = 'flex';
+              }
             });
         });
     })
@@ -291,8 +298,9 @@ function displayPokemonInfos(pokemonName) {
 
 function displayEvolutions(parent, chain) {
   let evolution = document.createElement('li');
+  console.log('hey', chain);
 
-  fetch('https://pokeapi.co/api/v2/pokemon/' + chain.species.name)
+  fetch('https://pokeapi.co/api/v2/pokemon/' + getId(chain.species.url))
     .then(function (response) {
       return response.json();
     })
@@ -319,7 +327,7 @@ function displayEvolutions(parent, chain) {
       });
 
       evolution.addEventListener('click', () => {
-        displayPokemonInfos(data.name);
+        displayPokemonInfos(data.id);
       });
 
       evolution.appendChild(img);
@@ -352,4 +360,8 @@ function rain(imgUrl) {
     rainDrop.style.animationDelay = Math.random() * 2 + 's';
     document.querySelector('body').appendChild(rainDrop);
   }
+}
+
+function getId(url) {
+  return url[url.length - 2];
 }
