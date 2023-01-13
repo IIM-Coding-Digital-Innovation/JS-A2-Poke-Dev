@@ -570,4 +570,21 @@ img.shiny {
         opacity: 1;
         translate: 0 200vh;
     }
+    font-family: Avenir;
+}
+
+
+#contactForm, #loginForm{
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+gap: 40px;
+background-color: aliceblue;
+padding: 2rem;
+}
+
+.title{
+    text-align: center;
+    margin: 20px;
 }
