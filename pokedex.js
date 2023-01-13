@@ -331,10 +331,6 @@ function displayEvolutions(parent, chain) {
     });
 }
 
-rain(
-  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png'
-);
-
 function rain(imgUrl) {
   for (let i = 0; i < 200; i++) {
     let rainDrop = document.createElement('img');
