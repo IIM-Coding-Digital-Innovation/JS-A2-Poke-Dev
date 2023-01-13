@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Your account</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <h1 class="username-display">Hi ! </h1>
+    <button class="logout">Log out </button>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 <script>
   
+let logOut = document.querySelector(".logout")
+
+logOut.addEventListener("click",function(){
+Cookies.remove("username")
+console.log(Cookies.get("username"))
+window.location.href = "login.html";
+})
+
+
+
 if (Cookies.get('username')) {
     // User is logged in
+    let username=document.querySelector(".username-display")
+    username.innerHTML += Cookies.get("username")
     console.log("User is logged in");
     // You can now show the specific content or functionality that should only be available to logged in users
 } else {

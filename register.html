@@ -9,53 +9,27 @@
     <form id="contactForm">
         <h1>inscription</h1>
         <div>
-          <input type="text" id="Name" name=”Name” placeholder="Your Name">
+          <input type="text" id="Name" name="Name" placeholder="Your Name" required>
         </div>
         <div>
-          <input type="text" name="EmailAddress" id="EmailAddress" placeholder="Your Email">
+          <input type="email" name="EmailAddress" id="EmailAddress" placeholder="Your Email" required>
         </div>
         <div>
-         <textarea id="Message" name="Message" cols="30" rows="6" placeholder="Your Message"></textarea>
+          <input type="password" id="password" name="password" placeholder="Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+        </div>
         <div>
-          <input type="submit" value="send">
+         <input type="password" id="passwordConf" name="passwordConf" placeholder="Confirm Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+         title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
         </div>
+        <div>
+          <input type="submit" value="send" id="submitBtn" disabled>
         </div>
-        </form>
-
-        <a href="login.html"><p>Already registerd ? Connect </p></a>
-
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script type="module">
-                    
-                    var thisForm = document.getElementById("contactForm");
-                    console.warn(document.querySelector("#Name"))
-                    const headers_ = {
-                        'Authorization': 'Bearer keyQRldQzZIt9Qpeu',
-                        'Content-Type': 'application/json'
-                    };
-                    // When the form is submitted...
-                    thisForm.addEventListener("submit", function(event) {
-                        console.log("hey")
-                    event.preventDefault();
-                    // POST the data
-                    axios.post("https://api.airtable.com/v0/appDaIOPzRpXiYeF2/Table%201",
-                    {
-                    "fields": {
-                        "username": document.querySelector("#Name").value,
-                        "email": document.querySelector("#EmailAddress").value,
-                        "password": document.querySelector("#Message").value
-                    }
-                    }, {headers: headers_}
-                    )
-                    .then((resp) => {
-                    console.log("success!")
-                    })
-                    .catch(function (error) {
-                    console.log(error);
-                    });
-                    });
-
-
-    </script>
+    </form>
+    <p id="error"></p>
+    <a href="login.html"><p>Already registerd ? Connect </p></a>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="user.js"></script>
 </body>
 </html>
