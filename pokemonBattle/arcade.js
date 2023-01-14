@@ -1,9 +1,9 @@
 'use strict'
 
 let attacksDiv = document.querySelector(".attacks")
-let yourTeamDiv = document.querySelector(".your-team")
+let yourTeamDiv = document.querySelector(".your-team-arcade")
 let youTeam =[]
-let allSlot =document.querySelectorAll(".slot-pokemon")
+let allSlot =document.querySelectorAll(".slot-pokemons")
 let finishSetUp=false
 let statsDiv
 let theMove

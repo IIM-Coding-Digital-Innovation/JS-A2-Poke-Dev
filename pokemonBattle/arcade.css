@@ -11,7 +11,7 @@
    justify-content: flex-start;
     
 }
-.slot-pokemon{
+.slot-pokemon2{
     padding: 0.8rem;
     margin: 1rem;
     display: flex;
@@ -45,7 +45,7 @@
     align-items: center;
     
 }
-.your-team{
+.your-team2{
     display: flex;
     flex-direction: column;
     height: 700px;
