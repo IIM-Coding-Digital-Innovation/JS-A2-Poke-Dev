@@ -1,49 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Your account</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1 class="username-display">Hi ! </h1>
-    <button class="logout">Log out </button>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="username-display">Hi !</h1>
+    <button class="logout">Log out</button>
 
     <h2 class="title">Pokemon Games</h2>
     <div class="choose-div">
-    <a href=""><div class="choose-game-button">Stats comparator</div></a>
-    <a href=""><div class="choose-game-button">Gacha Game</div></a>
-    <a href="chooseTeam.html"><div class="choose-game-button"> Arcade Mode - Pokemon Battle </div></a>
+      <a href="./Pokemon.html"
+        ><div class="choose-game-button">Pokemon Quiz</div></a
+      >
+      <a href="gachapon.html"
+        ><div class="choose-game-button">Gacha Game</div></a
+      >
+      <a href="chooseTeam.html"
+        ><div class="choose-game-button">Arcade Mode - Pokemon Battle</div></a
+      >
     </div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-<script>
-  
-let logOut = document.querySelector(".logout")
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+  <script>
+    let logOut = document.querySelector('.logout');
 
-logOut.addEventListener("click",function(){
-Cookies.remove("username")
-console.log(Cookies.get("username"))
-window.location.href = "login.html";
-})
+    logOut.addEventListener('click', function () {
+      Cookies.remove('username');
+      console.log(Cookies.get('username'));
+      window.location.href = 'login.html';
+    });
 
-
-
-if (Cookies.get('username')) {
-    // User is logged in
-    let username=document.querySelector(".username-display")
-    username.innerHTML += Cookies.get("username")
-    console.log("User is logged in");
-    // You can now show the specific content or functionality that should only be available to logged in users
-} else {
-    // User is not logged in
-    console.log("User is not logged in");
-    // You can now redirect the user to the login page or show a message asking them to log in
-}
-
-
-</script>
+    if (Cookies.get('username')) {
+      // User is logged in
+      let username = document.querySelector('.username-display');
+      username.innerHTML += Cookies.get('username');
+      console.log('User is logged in');
+      // You can now show the specific content or functionality that should only be available to logged in users
+    } else {
+      // User is not logged in
+      console.log('User is not logged in');
+      // You can now redirect the user to the login page or show a message asking them to log in
+    }
+  </script>
 </html>
