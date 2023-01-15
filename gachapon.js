@@ -31,7 +31,8 @@ butt.addEventListener("click", () => {
             // console.log(data.types.length)
             // console.log(data)
             if (data.sprites['front_default']) {
-                pok.innerHTML = data.name + `<br> <img draggable="true" id="dragtarget` + data.id + `" src="` + data.sprites['front_default'] + `">`
+                console.log(data)
+                pok.innerHTML = `<p draggable="false">` + data.name + `</p><img draggable="true" id="dragtarget` + data.id + `" src="` + data.sprites['front_default'] + `">`
             } else {
                 pok.innerHTML = `<img src="img/loser.png">`
             }
@@ -44,6 +45,7 @@ butt.addEventListener("click", () => {
 /* Event fired on the drag target */
 document.ondragstart = function(event) {
     event.dataTransfer.setData("Text", event.target.id)
+    console.log(event)
     if (event.path[1].classList.contains("droptarget")) {
         event.path[1].style.opacity = "0.1"
     }
